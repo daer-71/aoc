@@ -1,14 +1,10 @@
 f = open("02/input02.txt", "r")
 content = f.read()
-lines = content.splitlines()
-l1 = []
-l2 = []
-for l in lines:
-    l1.append(l.split()[0])
-    l2.append(l.split()[1])
-l1.sort()
-l2.sort()
-lResult = 0
-for i in range(len(l1)):
-    lResult += abs(int(l1[i]) - int(l2[i]))
-print(lResult)
+reports = content.splitlines()
+
+for reportLine in reports:
+    report = reportLine.split()
+    print(report)
+    diffs = [int(report[i+1]) - int(report[i]) for i in range(len(report) - 1)]
+    print(diffs)
+    diff = [int(diffs[i+1]) - int(diffs[i]) for i in range(len(diffs) - 1)]
